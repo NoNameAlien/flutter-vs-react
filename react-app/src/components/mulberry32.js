@@ -1,4 +1,4 @@
-function mulberry32(seed) {
+export default function mulberry32(seed) {
     let t = seed >>> 0;
     return function () {
         t |= 0; t = (t + 0x6D2B79F5) | 0;

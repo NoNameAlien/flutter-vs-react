@@ -12,8 +12,8 @@
 <body>
     <div class="main-container">
         <header class="header">
-            <h1>⚡ Performance Battle</h1>
-            <div class="subtitle">Flutter vs React - Real-time Comparison</div>
+            <h1>⚡ Flutter vs React ⚡</h1>
+            <div class="subtitle">Flutter (Dart) vs React (JS) — Real-time Comparison</div>
         </header>
 
         <div class="comparison-container">
@@ -32,26 +32,27 @@
                     <iframe id="flutter-frame" src="http://localhost:8081" title="Flutter App"></iframe>
                 </div>
                 <div class="metrics-panel" id="flutter-metrics">
-                    <div class="metric">
-                        <span class="metric-label">FPS:</span>
-                        <span class="metric-value" id="flutter-fps">--</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">Memory:</span>
-                        <span class="metric-value" id="flutter-memory">-- MB</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">Render Time:</span>
-                        <span class="metric-value" id="flutter-render">-- ms</span>
-                    </div>
+                    <div class="metric"><span class="metric-label">FPS:</span><span class="metric-value"
+                            id="flutter-fps">--</span></div>
+                    <div class="metric"><span class="metric-label">Memory:</span><span class="metric-value"
+                            id="flutter-memory">-- MB</span></div>
+                    <div class="metric"><span class="metric-label">Render Time:</span><span class="metric-value"
+                            id="flutter-render">-- ms</span></div>
+                </div>
+                <div class="metrics-panel" id="flutter-metrics-2">
+                    <div class="metric"><span class="metric-label">p95 frame (ms):</span><span class="metric-value"
+                            id="flutter-p95">--</span></div>
+                    <div class="metric"><span class="metric-label">>16.7ms frames:</span><span class="metric-value"
+                            id="flutter-over16">--%</span></div>
+                    <div class="metric"><span class="metric-label">LongTasks:</span><span class="metric-value"
+                            id="flutter-longtasks">--</span></div>
                 </div>
             </div>
 
             <!-- Control Panel -->
             <div class="control-section">
                 <button id="start-btn" class="start-button" disabled>
-                    <span class="button-icon">▶</span>
-                    START TEST
+                    <span class="button-icon">▶</span> START TEST
                 </button>
 
                 <div class="test-options">
@@ -60,7 +61,7 @@
                     <div class="option-group">
                         <label for="test-type">Test Type:</label>
                         <select id="test-type">
-                            <option value="animation">Heavy Animation</option>
+                            <option value="animation" selected>Heavy Animation</option>
                             <option value="list">Large List Rendering</option>
                             <option value="computation">Complex Computation</option>
                             <option value="dom">DOM Manipulation</option>
@@ -68,13 +69,50 @@
                     </div>
 
                     <div class="option-group">
-                        <label for="iterations">Iterations:</label>
-                        <input type="number" id="iterations" value="1000" min="100" max="10000">
-                    </div>
-
-                    <div class="option-group">
                         <label for="duration">Duration (sec):</label>
                         <input type="number" id="duration" value="5" min="1" max="60">
+                    </div>
+
+                    <hr style="margin:10px 0; opacity:.5;">
+
+                    <h4>Animation spec</h4>
+                    <div class="option-group">
+                        <label for="seed">Seed:</label>
+                        <input type="number" id="seed" value="1337">
+                    </div>
+                    <div class="option-group">
+                        <label for="particleCount">particleCount:</label>
+                        <input type="number" id="particleCount" value="600" min="1" max="20000">
+                    </div>
+                    <div class="option-row" style="display:flex; gap:10px;">
+                        <div class="option-group" style="flex:1;">
+                            <label for="width">width:</label>
+                            <input type="number" id="width" value="400" min="100" max="1200">
+                        </div>
+                        <div class="option-group" style="flex:1;">
+                            <label for="height">height:</label>
+                            <input type="number" id="height" value="400" min="100" max="1200">
+                        </div>
+                    </div>
+                    <div class="option-group">
+                        <label for="speed">speed (rad/ms):</label>
+                        <input type="number" id="speed" value="0.001" step="0.0005" min="0.0001" max="0.01">
+                    </div>
+                    <div class="option-group">
+                        <label for="amp">amp (0..1 of min size):</label>
+                        <input type="number" id="amp" value="0.45" step="0.01" min="0.05" max="1">
+                    </div>
+                    <div class="option-group">
+                        <label for="phaseStep">phaseStep:</label>
+                        <input type="number" id="phaseStep" value="0.015" step="0.001" min="0" max="1">
+                    </div>
+                    <div class="option-group">
+                        <label for="radius">draw radius (px):</label>
+                        <input type="number" id="radius" value="2" min="1" max="10">
+                    </div>
+                    <div class="option-group">
+                        <label for="cpuLoops">cpuLoops (extra math per particle):</label>
+                        <input type="number" id="cpuLoops" value="0" min="0" max="2000">
                     </div>
                 </div>
 
@@ -101,27 +139,27 @@
                     <iframe id="react-frame" src="http://localhost:3000" title="React App"></iframe>
                 </div>
                 <div class="metrics-panel" id="react-metrics">
-                    <div class="metric">
-                        <span class="metric-label">FPS:</span>
-                        <span class="metric-value" id="react-fps">--</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">Memory:</span>
-                        <span class="metric-value" id="react-memory">-- MB</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">Render Time:</span>
-                        <span class="metric-value" id="react-render">-- ms</span>
-                    </div>
+                    <div class="metric"><span class="metric-label">FPS:</span><span class="metric-value"
+                            id="react-fps">--</span></div>
+                    <div class="metric"><span class="metric-label">Memory:</span><span class="metric-value"
+                            id="react-memory">-- MB</span></div>
+                    <div class="metric"><span class="metric-label">Render Time:</span><span class="metric-value"
+                            id="react-render">-- ms</span></div>
+                </div>
+                <div class="metrics-panel" id="react-metrics-2">
+                    <div class="metric"><span class="metric-label">p95 frame (ms):</span><span class="metric-value"
+                            id="react-p95">--</span></div>
+                    <div class="metric"><span class="metric-label">>16.7ms frames:</span><span class="metric-value"
+                            id="react-over16">--%</span></div>
+                    <div class="metric"><span class="metric-label">LongTasks:</span><span class="metric-value"
+                            id="react-longtasks">--</span></div>
                 </div>
             </div>
         </div>
 
         <div class="results-section">
             <h2>Performance Results</h2>
-            <div class="chart-container">
-                <canvas id="performance-chart"></canvas>
-            </div>
+            <div class="chart-container"><canvas id="performance-chart"></canvas></div>
             <div class="results-summary" id="results-summary"></div>
         </div>
     </div>

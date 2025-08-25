@@ -4,8 +4,8 @@
     "scripts": {
         "build:react": "bash -lc 'cd react-app && npm run build'",
         "build:flutter": "bash -lc 'cd flutter_app && flutter build web'",
-        "serve:react": "bash -lc 'npx serve -s react-app/build -l 3000'",
-        "serve:flutter": "bash -lc 'npx serve flutter_app/build/web -l 8081'",
+        "serve:react": "bash -lc 'npx serve -s react-app/build -l tcp://localhost:3000 --no-clipboard --no-port-switching'",
+        "serve:flutter": "bash -lc 'npx serve flutter_app/build/web -l tcp://localhost:8081 --no-clipboard --no-port-switching'",
         "serve:main": "npm --prefix main-app run start",
         "prod": "concurrently -k -n FLUTTER,REACT,MAIN -c blue,cyan,magenta \"npm run serve:flutter\" \"npm run serve:react\" \"wait-on tcp:8081 tcp:3000 && npm run serve:main\"",
         "build:all": "npm run build:flutter && npm run build:react"
