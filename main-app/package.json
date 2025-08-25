@@ -1,0 +1,17 @@
+{
+    "name": "performance-comparison",
+    "version": "1.0.0",
+    "description": "Flutter vs React Performance Comparison Tool",
+    "main": "index.html",
+    "scripts": {
+        "start": "live-server --host=localhost --port=8080 --open=index.html --no-css-inject",
+        "dev": "npx serve . -p 8080"
+    },
+    "dependencies": {
+        "chart.js": "^4.4.0"
+    },
+    "devDependencies": {
+        "live-server": "^1.2.2",
+        "serve": "^14.2.0"
+    }
+}

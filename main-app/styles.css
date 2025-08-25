@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg1: #667eea;
+    --bg2: #764ba2;
+    --react: #61DAFB;
+    --flutter: #02569B;
+    --card: #ffffff;
+    --muted: #666;
+    --text: #333;
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.main-container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Layout */
+.comparison-container {
+    display: grid;
+    grid-template-columns: 1fr 320px 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.app-section {
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+/* App header + status */
+.app-header {
+    background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+    color: white;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.framework-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.app-header h2 {
+    font-size: 1.2rem;
+}
+
+.app-status {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #bdbdbd;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.status-dot.online {
+    background: #22c55e;
+}
+
+.status-dot.error {
+    background: #ef4444;
+}
+
+.status-label {
+    font-size: 0.85rem;
+    opacity: 0.95;
+}
+
+/* Frame */
+.app-frame {
+    height: 520px;
+    background: #f5f5f5;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid #eaeaea;
+}
+
+.app-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+}
+
+/* Control Section */
+.control-section {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.start-button {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+    padding: 18px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 5px 20px rgba(245, 87, 108, 0.4);
+    transition: all 0.25s ease;
+}
+
+.start-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 25px rgba(245, 87, 108, 0.5);
+}
+
+.start-button:active {
+    transform: translateY(0);
+}
+
+.start-button.running {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.start-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+}
+
+.button-icon {
+    font-size: 1.4rem;
+}
+
+/* Test Options */
+.test-options {
+    background: var(--card);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.test-options h3 {
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.option-group {
+    margin-bottom: 14px;
+}
+
+.option-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.option-group select,
+.option-group input {
+    width: 100%;
+    padding: 9px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #fff;
+}
+
+.option-group select:focus,
+.option-group input:focus {
+    outline: none;
+    border-color: var(--bg1);
+}
+
+/* Status Panel */
+.status-panel {
+    background: var(--card);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.status-text {
+    margin-bottom: 10px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--bg1) 0%, var(--bg2) 100%);
+    width: 0%;
+    transition: width 0.2s ease;
+}
+
+/* Metrics */
+.metrics-panel {
+    padding: 14px;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #e0e0e0;
+}
+
+.metric {
+    text-align: center;
+}
+
+.metric-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 5px;
+}
+
+.metric-value {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.flutter-section .metric-value {
+    color: var(--flutter);
+}
+
+.react-section .metric-value {
+    color: var(--react);
+}
+
+/* Results */
+.results-section {
+    background: var(--card);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+}
+
+.results-section h2 {
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.chart-container {
+    height: 380px;
+    margin-bottom: 16px;
+}
+
+.results-summary {
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: none;
+}
+
+.results-summary.show {
+    display: block;
+}
+
+.winner {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .comparison-container {
+        grid-template-columns: 1fr;
+    }
+
+    .control-section {
+        max-width: none;
+        order: -1;
+    }
+
+    .app-frame {
+        height: 420px;
+    }
+}
+
+@media (max-width: 620px) {
+    body {
+        padding: 12px;
+    }
+
+    .app-frame {
+        height: 360px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+}

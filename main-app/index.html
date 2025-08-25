@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flutter vs React - Performance Comparison</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <header class="header">
+            <h1>⚡ Performance Battle</h1>
+            <div class="subtitle">Flutter vs React - Real-time Comparison</div>
+        </header>
+
+        <div class="comparison-container">
+            <!-- Flutter -->
+            <div class="app-section flutter-section">
+                <div class="app-header">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                        alt="Flutter" class="framework-icon" />
+                    <h2>Flutter Web</h2>
+                    <div class="app-status">
+                        <span id="flutter-conn" class="status-dot" title="Connection status"></span>
+                        <span id="flutter-conn-label" class="status-label">Waiting...</span>
+                    </div>
+                </div>
+                <div class="app-frame">
+                    <iframe id="flutter-frame" src="http://localhost:8081" title="Flutter App"></iframe>
+                </div>
+                <div class="metrics-panel" id="flutter-metrics">
+                    <div class="metric">
+                        <span class="metric-label">FPS:</span>
+                        <span class="metric-value" id="flutter-fps">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Memory:</span>
+                        <span class="metric-value" id="flutter-memory">-- MB</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Render Time:</span>
+                        <span class="metric-value" id="flutter-render">-- ms</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-section">
+                <button id="start-btn" class="start-button" disabled>
+                    <span class="button-icon">▶</span>
+                    START TEST
+                </button>
+
+                <div class="test-options">
+                    <h3>Test Configuration</h3>
+
+                    <div class="option-group">
+                        <label for="test-type">Test Type:</label>
+                        <select id="test-type">
+                            <option value="animation">Heavy Animation</option>
+                            <option value="list">Large List Rendering</option>
+                            <option value="computation">Complex Computation</option>
+                            <option value="dom">DOM Manipulation</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label for="iterations">Iterations:</label>
+                        <input type="number" id="iterations" value="1000" min="100" max="10000">
+                    </div>
+
+                    <div class="option-group">
+                        <label for="duration">Duration (sec):</label>
+                        <input type="number" id="duration" value="5" min="1" max="60">
+                    </div>
+                </div>
+
+                <div class="status-panel" id="status">
+                    <div class="status-text" id="status-text">Waiting apps...</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- React -->
+            <div class="app-section react-section">
+                <div class="app-header">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"
+                        class="framework-icon" />
+                    <h2>React</h2>
+                    <div class="app-status">
+                        <span id="react-conn" class="status-dot" title="Connection status"></span>
+                        <span id="react-conn-label" class="status-label">Waiting...</span>
+                    </div>
+                </div>
+                <div class="app-frame">
+                    <iframe id="react-frame" src="http://localhost:3000" title="React App"></iframe>
+                </div>
+                <div class="metrics-panel" id="react-metrics">
+                    <div class="metric">
+                        <span class="metric-label">FPS:</span>
+                        <span class="metric-value" id="react-fps">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Memory:</span>
+                        <span class="metric-value" id="react-memory">-- MB</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Render Time:</span>
+                        <span class="metric-value" id="react-render">-- ms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <h2>Performance Results</h2>
+            <div class="chart-container">
+                <canvas id="performance-chart"></canvas>
+            </div>
+            <div class="results-summary" id="results-summary"></div>
+        </div>
+    </div>
+
+    <script src="coordinator.js"></script>
+</body>
+
+</html>
